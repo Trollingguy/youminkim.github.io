@@ -52,6 +52,33 @@
   page_id="337038703152635"
   color="blue"
   size="standard" ></div>
+  
+  <br><br>
+  
+  <button id="liveButton">Create Live Stream To Facebook</button>
+<script>
+document.getElementById('liveButton').onclick = function() {
+  FB.ui({
+    display: 'popup',
+    method: 'live_broadcast',
+    phase: 'create',
+}, function(response) {
+    if (!response.id) {
+      alert('dialog canceled');
+      return;
+    }
+    alert('stream url:' + response.secure_stream_url);
+    FB.ui({
+      display: 'popup',
+      method: 'live_broadcast',
+      phase: 'publish',
+      broadcast_data: response,
+    }, function(response) {
+    alert("video status: \n" + response.status);
+    });
+  });
+};
+</script>
 
       <h3>
 <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
