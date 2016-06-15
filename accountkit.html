@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Facebook Live Video</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1523333124610031',
+          xfbml      : true,
+          version    : 'v2.6'
+        });
+      };
+    
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    
+    
+    <section class="page-header">
+      <h1 class="project-name">Facebook Live Video Example</h1>
+      <h2 class="project-tagline"></h2>
+    </section>
+
+    <section class="main-content">
+      Enter country code (e.g. +1):
+      <input type="text" id="country_code" />
+      Enter phone number without spaces (e.g. 444555666):
+      <input type="text" id="phone_num"/>
+      <button onclick="phone_btn_onclick();">Login via SMS</button>
+      Enter email address
+      <input type="text" id="email"/>
+      <button onclick="email_btn_onclick();">Login via Email</button>
+      
+      <script>
+      // initialize Account Kit with CSRF protection
+      AccountKit_OnInteractive = function(){
+        AccountKit.init(
+          {
+            appId:1523333124610031, 
+          }
+        );
+      };
+    
+      // login callback
+      function loginCallback(response) {
+        console.log(response);
+        if (response.status === "PARTIALLY_AUTHENTICATED") {
+          document.getElementById("code").value = response.code;
+          document.getElementById("csrf_nonce").value = response.state;
+          document.getElementById("my_form").submit();
+        }
+        else if (response.status === "NOT_AUTHENTICATED") {
+          // handle authentication failure
+        }
+        else if (response.status === "BAD_PARAMS") {
+          // handle bad parameters
+        }
+      }
+    
+      // phone form submission handler
+      function phone_btn_onclick() {
+        var country_code = document.getElementById("country_code").value;
+        var ph_num = document.getElementById("phone_num").value;
+        AccountKit.login('PHONE', 
+          {countryCode: country_code, phoneNumber: ph_num}, // will use default values if this is not specified
+          loginCallback);
+      }
+    
+    
+      // email form submission handler
+      function email_btn_onclick() {
+        var email_address = document.getElementById("email").value;
+    
+        AccountKit.login('EMAIL', {emailAddress: email_address}, loginCallback);
+      }
+    
+    </script>
+
+      
+      
+      
+    </section>
+  </body>
+</html>
