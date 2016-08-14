@@ -2,7 +2,7 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>Youminkim.GitHub.io by youminkim</title>
+    <title>Youmin Kim</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
@@ -27,87 +27,20 @@
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
     </script>
-
-    
     
     <section class="page-header">
-      <h1 class="project-name">Youminkim.GitHub.io</h1>
-      <h2 class="project-tagline"></h2>
+      <h1 class="project-name">Youmin Kim</h1>
+      <h2 class="project-tagline">Hello World</h2>
     </section>
-
-    <section class="main-content">
-      
-      <h3>Messaging</h3>
-          <div class="fb-send-to-messenger" 
-  messenger_app_id="1523333124610031" 
-  page_id="337038703152635" 
-  data-ref="test01" 
-  color="blue" 
-  size="standard"></div>
+  
+  <section>
+    <h1>Contacts</h1>
+    <ul>
+      <li><a href="https://facebook.com/youminkim">Facebook</a></li>
+      <li><a href="https://www.linkedin.com/in/youmin">LinkedIn</a></li>
+    </ul>    
   
   <br><br>
-  
-  <div class="fb-messengermessageus" 
-  messenger_app_id="1523333124610031" 
-  page_id="337038703152635"
-  color="blue"
-  size="standard" ></div>
-  
-  <br><br>
-  
-  <button id="liveButton">Create Live Stream To Facebook</button>
-<script>
-document.getElementById('liveButton').onclick = function() {
-  FB.ui({
-    display: 'popup',
-    method: 'live_broadcast',
-    phase: 'create',
-}, function(response) {
-    if (!response.id) {
-      alert('dialog canceled');
-      return;
-    }
-    alert('stream url:' + response.secure_stream_url);
-    FB.ui({
-      display: 'popup',
-      method: 'live_broadcast',
-      phase: 'publish',
-      broadcast_data: response,
-    }, function(response) {
-    alert("video status: \n" + response.status);
-    });
-  });
-};
-</script>
-
-    </section>
-    
-
-<script>
-fbq('track', 'Purchase', {'value':'9.99','currency':'ARS'});
-</script>
-    
-<!-- Facebook Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-document,'script','https://connect.facebook.net/en_US/fbevents.js');
-
-fbq('init', '529000343931342');
-fbq('track', "PageView");</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=529000343931342&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Facebook Pixel Code -->
-
-...
-
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=529000343931342&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Facebook Pixel Code -->
-
+  </section>
   </body>
 </html>
